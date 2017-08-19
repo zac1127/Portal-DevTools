@@ -1,8 +1,9 @@
 {
-    "name" : "portal/devtools",
-    "description" : "Tools for poral developers",
-    "keywords" : ["portal"],
-    "require": {
+  "name" : "portal/devtools",
+  "description" : "Tools for poral developers",
+  "keywords" : ["portal"],
+  "license": "MIT",
+  "require": {
       "ext-zip": "*",
       "guzzlehttp/guzzle": "~4.0|~5.0|~6.0",
       "symfony/console": "~2.3|~3.0",
