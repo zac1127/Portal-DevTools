@@ -1,0 +1,23 @@
+#! /usr/bin/env php
+
+
+<?php
+
+
+
+require 'vendor/autoload.php';
+
+
+$app = new Symfony\Component\Console\Application('Portal Application Tool', '1.0');
+
+$app->register('sayHello')
+    ->addArgument('name')
+    ->setCode(function(IntputInterface $input, OutputInterface $output)
+    {
+
+        $output->writeln('Hello World');
+
+    });
+
+    $app->run();
+

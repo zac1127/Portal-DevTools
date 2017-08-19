@@ -1,0 +1,10 @@
+{
+    "name" : "portal/devtools",
+    "description" : "Tools for poral developers",
+    "keywords" : ["portal"],
+    
+
+    "require" : {
+      "symfony/console" : "~2.0"
+    }
+}
