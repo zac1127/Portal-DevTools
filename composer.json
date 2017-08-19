@@ -2,9 +2,21 @@
     "name" : "portal/devtools",
     "description" : "Tools for poral developers",
     "keywords" : ["portal"],
-    
-
     "require" : {
       "symfony/console" : "~2.0"
+    },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "portal/devtools",
+        "version": "dev-master",
+        "source": {
+          "url": "git://github.com/zac1127/Portal-DevTools.git",
+          "type": "git",
+          "reference": "master"
+        }
+      }
     }
+  ]
 }
