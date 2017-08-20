@@ -1,6 +1,6 @@
 {
   "name" : "portal/devtools",
-  "description" : "Tools for poral developers",
+  "description" : "Tools for portal developers",
   "keywords" : ["portal"],
   "license": "MIT",
   "require": {
