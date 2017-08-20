@@ -23,16 +23,16 @@ App::add('database_restore_path', 'D:/Development/Portal/portal-service/test/dat
 
 $applicationName =  "
 ------------------------------------------------
-        ____  ____  ____  _________    __
-       / __ \/ __ \/ __ \/_  __/   |  / /
-                                               / /_/ / / / / /_/ / / / / /| | / /
-                                              / ____/ /_/ / _, _/ / / / ___ |/ /___
-                                             /_/    \____/_/ |_| /_/ /_/  |_/_____/
-                                         ------------------------------------------------
-                                         ";
+         ____  ____  ____  _________    __
+        / __ \/ __ \/ __ \/_  __/   |  / /
+	   / /_/ / / / / /_/ / / / / /| | / /
+	  / ____/ /_/ / _, _/ / / / ___ |/ /___
+	 /_/    \____/_/ |_| /_/ /_/  |_/_____/
+------------------------------------------------
+";
 
-                                         $app = new Application($applicationName, '1.0');
+$app = new Application($applicationName, '1.0');
 
-                                         $app->add(new Portal\Tools\BuildCommand);
+$app->add(new Portal\Tools\BuildCommand);
 
 $app->run();
