@@ -26,11 +26,13 @@ class BuildCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $cmd = "D:\Development\Portal\portal-service\test\database\orange\database-restore.cmd";
-        
 
         $process = new Process($cmd);
-        $process->run();
-        $output->writeLn('Running database restore... ');
+        $process->run(function ($type, $line) use ($output) {
+            $output->write($line);
+        });
+
+        $output->writeln('<comment>You\'re database is ready!</comment>');
     }
 
 }
