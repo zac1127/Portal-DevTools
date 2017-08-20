@@ -4,7 +4,6 @@
 <?php
 
 use Symfony\Component\Console\Application;
-use Portal\Tools\App;
 
 if (file_exists(__DIR__.'/../../autoload.php')) {
     require __DIR__.'/../../autoload.php';
@@ -12,12 +11,8 @@ if (file_exists(__DIR__.'/../../autoload.php')) {
     require __DIR__.'/vendor/autoload.php';
 }
 
-
-/*
-* Inserting file paths into DI container.
-*/
-App::add('portal_view_path', 'D:/Development/Portal/developer-tool/build-view/build.ps1');
-App::add('database_restore_path', 'D:/Development/Portal/portal-service/test/database/orange');
+//File holds file paths.
+require 'config.php';
 
 
 
@@ -25,14 +20,16 @@ $applicationName =  "
 ------------------------------------------------
          ____  ____  ____  _________    __
         / __ \/ __ \/ __ \/_  __/   |  / /
-	   / /_/ / / / / /_/ / / / / /| | / /
-	  / ____/ /_/ / _, _/ / / / ___ |/ /___
-	 /_/    \____/_/ |_| /_/ /_/  |_/_____/
+       / /_/ / / / / /_/ / / / / /| | / /
+      / ____/ /_/ / _, _/ / / / ___ |/ /___
+     /_/    \____/_/ |_| /_/ /_/  |_/_____/
 ------------------------------------------------
 ";
 
-$app = new Application($applicationName, '1.0');
+$app = new Application($applicationName, '1.1');
 
 $app->add(new Portal\Tools\BuildCommand);
+$app->add(new Portal\Tools\OpenCommand);
+
 
 $app->run();

@@ -22,7 +22,6 @@ class BuildCommand extends Command
             ->addArgument('type', InputArgument::OPTIONAL)
             ->addArgument('viewName', InputArgument::OPTIONAL);
 
-
     }
 
     public function execute(InputInterface $input, OutputInterface $output)
