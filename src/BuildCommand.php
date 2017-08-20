@@ -25,10 +25,16 @@ class BuildCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $cmd = "cd D:\Development\Portal\portal-service\test\database\orange";
+        $cmd = "D:\Development\Portal\portal-service\test\database\orange\database-restore.cmd";
+        if( ! file_exists($cmd))
+        {
+            $output->writeln("File doesnt exist!");
+            exit(1);
+        }
+
         $process = new Process($cmd);
         $process->run();
-        $output->writeLn('Changing Directories... ');
+        $output->writeLn('Running database restore... ');
     }
 
 }

@@ -13,6 +13,6 @@ if (file_exists(__DIR__.'/../../autoload.php')) {
 
 $app = new Application('Portal Application Developer Tools', '1.0');
 
-$app->add(new BuildCommand);
+$app->add(new Portal\Tools\BuildCommand);
 
 $app->run();
