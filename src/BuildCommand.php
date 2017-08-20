@@ -18,7 +18,7 @@ class BuildCommand extends Command
 
         $this->setName('build')
             ->setDescription('Builds a module of the portal')
-            ->addArgument('component', InputArgument::REQUIRED, 'Build Item.');
+            ->addArgument('component', InputArgument::REQUIRED, 'Item to build.');
 
 
     }
@@ -26,11 +26,7 @@ class BuildCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $cmd = "D:\Development\Portal\portal-service\test\database\orange\database-restore.cmd";
-        if( ! file_exists($cmd))
-        {
-            $output->writeln("File doesnt exist!");
-            exit(1);
-        }
+        
 
         $process = new Process($cmd);
         $process->run();
