@@ -8,6 +8,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Process\Process;
 
 class BuildCommand extends Command
 {
@@ -24,8 +25,10 @@ class BuildCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-
-        $output->writeLn('Hello World');
+        $cmd = "cd D:\Development\Portal\portal-service\test\database\orange";
+        $process = new Process($cmd);
+        $process->run();
+        $output->writeLn('Changing Directories... ');
     }
 
 }
