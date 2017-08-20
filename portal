@@ -4,6 +4,7 @@
 <?php
 
 use Symfony\Component\Console\Application;
+use Portal\Tools\App;
 
 if (file_exists(__DIR__.'/../../autoload.php')) {
     require __DIR__.'/../../autoload.php';
@@ -11,8 +12,26 @@ if (file_exists(__DIR__.'/../../autoload.php')) {
     require __DIR__.'/vendor/autoload.php';
 }
 
-$app = new Application('Portal Application Developer Tools', '1.0');
 
-$app->add(new Portal\Tools\BuildCommand);
+/*
+* Inserting file paths into DI container.
+*/
+App::add('portal_view_path', 'D:/Development/Portal/developer-tool/build-view/build.ps1');
+App::add('database_restore_path', 'D:/Development/Portal/portal-service/test/database/orange');
+
+
+$applicationName =  "
+------------------------------------------------
+        ____  ____  ____  _________    __
+       / __ \/ __ \/ __ \/_  __/   |  / /
+                                               / /_/ / / / / /_/ / / / / /| | / /
+                                              / ____/ /_/ / _, _/ / / / ___ |/ /___
+                                             /_/    \____/_/ |_| /_/ /_/  |_/_____/
+                                         ------------------------------------------------
+                                         ";
+
+                                         $app = new Application($applicationName, '1.0');
+
+                                         $app->add(new Portal\Tools\BuildCommand);
 
 $app->run();
