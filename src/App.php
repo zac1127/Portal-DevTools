@@ -8,11 +8,19 @@ class App
 {
     private static $registry = [];
 
-    public static function add($key, $value) {
+    public static function add($key, $value)
+    {
         static::$registry[$key] = $value;
     }
 
-    public static function get($key) {
+    public static function get($key)
+    {
         return static::$registry[$key];
     }
+
+    public static function getRegistry()
+    {
+        return static::$registry;
+    }
+
 }

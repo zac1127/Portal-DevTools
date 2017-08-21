@@ -26,10 +26,11 @@ $applicationName =  "
 ------------------------------------------------
 ";
 
-$app = new Application($applicationName, '1.1');
+$app = new Application($applicationName, 'Portal Developer Tools 1.1');
 
 $app->add(new Portal\Tools\BuildCommand);
 $app->add(new Portal\Tools\OpenCommand);
+$app->add(new Portal\Tools\ConfigCommand);
 
 
 $app->run();
