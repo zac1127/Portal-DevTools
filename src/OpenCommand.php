@@ -30,6 +30,7 @@ class OpenCommand extends Command
             if ( ! file_exists(App::get('database_restore_path') . "/database-restore.cmd")) {
 
                 $output->writeln('The path to your database restore is incorrect.');
+                exit(1);
 
             }
 

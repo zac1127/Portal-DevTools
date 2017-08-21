@@ -37,6 +37,7 @@ class ConfigCommand extends Command
 
     public function buildTable()
     {
+        // get the file paths from the DI container.
         $paths = App::getRegistry();
         $table = [];
         foreach($paths as $key => $path){

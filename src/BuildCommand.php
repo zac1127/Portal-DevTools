@@ -77,6 +77,7 @@ class BuildCommand extends Command
 
         }
 
+        // process the commands.
         $process = new Process(implode(' && ', $commands));
         $process->setTimeout(99999);
         $process->run(function ($type, $line) use ($output) {
