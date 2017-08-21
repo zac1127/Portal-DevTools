@@ -32,7 +32,7 @@ class OpenCommand extends Command
                 $output->writeln('The path to your database restore is incorrect.');
             }
 
-            $open = "\"C:\\Program Files (x86)\\Notepad++\\notepad++.exe\" \"" . App::get('database_restore_path') . "/database-restore.cmd\"";
+            $open = "\"".App::get('file_editor')."\"" . App::get('database_restore_path') . "/database-restore.cmd\"";
         }
 
         // processes the commands
