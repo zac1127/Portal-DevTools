@@ -19,13 +19,17 @@ class ConfigCommand extends Command
 
         $this->setName('config')
             ->setDescription('Manage your configs.')
-            ->addArgument('action', InputArgument::REQUIRED);
+            ->addArgument('action');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
 
-        if($input->getArgument('action') == 'paths') {
+        if($input->getArgument('action') == NULL) {
             $paths = $this->buildTable();
             $table = new Table($output);
             $table->setHeaders(['Path Name', 'Path', 'Correct?'])
@@ -33,8 +37,25 @@ class ConfigCommand extends Command
                 ->render();
         }
 
+        if($input->getArgument('action') === 'fix') {
+            $commands = [
+                'cd %homepath%/AppData/Roaming/Composer/vendor/portal/devtools',
+                'start "' . App::get('file_editor') . '" ./config.php'
+            ];
+
+            // process the commands.
+            $process = new Process(implode(' && ', $commands));
+            $process->setTimeout(99999);
+            $process->run(function ($type, $line) use ($output) {
+                $output->write($line);
+            });
+        }
+
     }
 
+    /**
+     * @return array
+     */
     public function buildTable()
     {
         // get the file paths from the DI container.

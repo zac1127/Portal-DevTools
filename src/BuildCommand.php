@@ -73,8 +73,6 @@ class BuildCommand extends Command
             ];
 
             $output->writeln('<comment>Changing directories...</comment>');
-            $output->writeln($commands);
-
         }
 
         // process the commands.
