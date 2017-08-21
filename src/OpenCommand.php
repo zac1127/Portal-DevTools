@@ -32,8 +32,7 @@ class OpenCommand extends Command
                 $output->writeln('The path to your database restore is incorrect.');
             }
 
-            $open = "\"".App::get('file_editor')."\"" . App::get('database_restore_path') . "/database-restore.cmd\"";
-        }
+            $open = "\"".App::get('file_editor')."\" \"" . App::get('database_restore_path') . "/database-restore.cmd\"";
 
         // processes the commands
         $process = new Process($open);
