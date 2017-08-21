@@ -25,14 +25,16 @@ class OpenCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
 
-        if($input->getArgument('name') == "peggy")
-        {
-            if( ! file_exists(App::get('database_restore_path') . "/database-restore.cmd"))
-            {
+        if($input->getArgument('name') == "peggy") {
+
+            if ( ! file_exists(App::get('database_restore_path') . "/database-restore.cmd")) {
+
                 $output->writeln('The path to your database restore is incorrect.');
+
             }
 
-            $open = "\"".App::get('file_editor')."\" \"" . App::get('database_restore_path') . "/database-restore.cmd\"";
+            $open = "\"" . App::get('file_editor') . "\" \"" . App::get('database_restore_path') . "/database-restore.cmd\"";
+        }
 
         // processes the commands
         $process = new Process($open);
