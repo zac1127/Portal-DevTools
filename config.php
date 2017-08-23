@@ -15,3 +15,4 @@ App::add('build_view_path', 'D:/Development/Portal/developer-tool/build-view/bui
 App::add('database_restore_path', 'D:/Development/Portal/portal-service/test/database/orange');
 App::add('portal_view_path', 'D:/Development/Portal/portal-view');
 App::add('portal_service_path', 'D:/Development/Portal/portal-service');
+App::add('portal_service_logs', 'D:/Logs/Mattersight Portal Service/PHP/PHP_errors.log');

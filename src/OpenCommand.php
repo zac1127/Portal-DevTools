@@ -37,6 +37,18 @@ class OpenCommand extends Command
             $open = "\"" . App::get('file_editor') . "\" \"" . App::get('database_restore_path') . "/database-restore.cmd\"";
         }
 
+        if($input->getArgument('name') === "logs") {
+
+            if ( ! file_exists(App::get('portal_service_logs'))) {
+
+                $output->writeln('The path to your portal service log is incorrect.');
+                exit(1);
+
+            }
+
+            $open = "\"" . App::get('file_editor') . "\" \"" .App::get('portal_service_logs') . "\"";
+        }
+
         if($input->getArgument('name') === "portal") {
 
             $open = 'start  "" http://localhost';
@@ -70,6 +82,11 @@ class OpenCommand extends Command
         if($input->getArgument('name') === "jenkins") {
 
             $open = 'start  "" https://jenkinsdev.mattersight.local/';
+        }
+
+        if($input->getArgument('name') === "vdi") {
+
+            $open = 'start  "" https://connect.mattersight.com/vpn/index.html';
         }
 
 
