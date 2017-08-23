@@ -19,8 +19,8 @@ class BuildCommand extends Command
         $this->setName('build')
             ->setDescription('Builds a module of the portal')
             ->addArgument('name', InputArgument::REQUIRED)
-            ->addArgument('type', InputArgument::OPTIONAL)
-            ->addArgument('viewName', InputArgument::OPTIONAL);
+            ->addArgument('type', InputArgument::OPTIONAL, 'Ex. Module')
+            ->addArgument('moduleName', InputArgument::OPTIONAL, 'Module to build Ex. Legacy');
 
     }
 
@@ -29,7 +29,7 @@ class BuildCommand extends Command
 
 
         //Get the paths for portal view and portal service
-        $portal_view_path = App::get("portal_view_path");
+        $portal_view_path = App::get("build_view_path");
         $database_restore_path = App::get("database_restore_path");
 
 
@@ -48,7 +48,7 @@ class BuildCommand extends Command
 
             if($input->getArgument('type') == "module")
             {
-                $portal_view_path .= ' '. $input->getArgument('type') . ' ' . $input->getArgument('viewName');
+                $portal_view_path .= ' '. $input->getArgument('type') . ' ' . $input->getArgument('moduleName');
             }
 
             $commands = [
@@ -73,6 +73,12 @@ class BuildCommand extends Command
             ];
 
             $output->writeln('<comment>Changing directories...</comment>');
+        }
+
+        if(empty($commands))
+        {
+            $output->writeln('<comment> The command you entered is invalid...</comment>');
+            exit(1);
         }
 
         // process the commands.

@@ -87,6 +87,11 @@ class OpenCommand extends Command
 
 
 
+        if(empty($open))
+        {
+            $output->writeln("The command you entered is invalid");
+            exit(1);
+        }
 
         // processes the commands
         $process = new Process($open);
@@ -94,6 +99,7 @@ class OpenCommand extends Command
         $process->run(function ($type, $line) use ($output) {
             $output->write($line);
         });
+        exit(1);
 
 
     }
