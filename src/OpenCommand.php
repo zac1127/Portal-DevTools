@@ -17,7 +17,7 @@ class OpenCommand extends Command
     {
 
         $this->setName('open')
-            ->setDescription('Opens commonly used files')
+            ->setDescription('Opens commonly used tools/files')
             ->addArgument('name', InputArgument::REQUIRED);
 
     }
