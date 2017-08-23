@@ -74,6 +74,17 @@ class UpdateCommand extends Command
 
         }
 
+
+        if($input->getArgument('module') === NULL)
+        {
+            $output->writeln("Updating your portal devtools...");
+
+            //update portal-service and portal-view
+            $commands = [
+                'composer global update portal/devtools:dev-master --prefer-source'
+            ];
+        }
+
         if(empty($commands))
         {
             $output->write('The command you entered is invalid.');
