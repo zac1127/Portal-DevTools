@@ -31,7 +31,7 @@ class UpdateCommand extends Command
         $portal_service = 'cd /D' . App::get('portal_service_path');
         $portal_view = 'cd /D' . App::get('portal_view_path');
 
-        if($input->getArgument('module') === "all")
+        if($input->getArgument('module') === "portal")
         {
 
             $output->writeln("Updating your portal...");
