@@ -28,8 +28,8 @@ class UpdateCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
 
-        $portal_service = 'cd ' . App::get('portal_service_path');
-        $portal_view = 'cd ' . App::get('portal_view_path');
+        $portal_service = 'cd /D' . App::get('portal_service_path');
+        $portal_view = 'cd /D' . App::get('portal_view_path');
 
         if($input->getArgument('module') === "all")
         {
@@ -38,6 +38,7 @@ class UpdateCommand extends Command
 
             //update portal-service and portal-view
             $commands = [
+				'cd D:/',
                 $portal_service,
                 'git checkout develop',
                 'git pull --progress -v --no-rebase "origin"',
@@ -52,8 +53,9 @@ class UpdateCommand extends Command
         {
             $output->writeln("Updating portal view...");
 
-            //update portal-service and portal-view
+            //update portal-view
             $commands = [
+				'cd D:/',
                 $portal_view,
                 'git checkout develop',
                 'git pull --progress -v --no-rebase "origin"'
@@ -65,8 +67,9 @@ class UpdateCommand extends Command
         {
             $output->writeln("Updating portal service...");
 
-            //update portal-service and portal-view
+            //update portal-service
             $commands = [
+				'cd D:/',
                 $portal_service,
                 'git checkout develop',
                 'git pull --progress -v --no-rebase "origin"'
@@ -79,7 +82,7 @@ class UpdateCommand extends Command
         {
             $output->writeln("Updating your portal devtools...");
 
-            //update portal-service and portal-view
+            //update portal devtools
             $commands = [
                 'composer global update portal/devtools:dev-master --prefer-source'
             ];
