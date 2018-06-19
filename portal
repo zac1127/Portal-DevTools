@@ -31,8 +31,6 @@ $app = new Application($applicationName, 'Portal Developer Tools v1.0');
 $app->add(new Portal\Tools\BuildCommand);
 $app->add(new Portal\Tools\OpenCommand);
 $app->add(new Portal\Tools\ConfigCommand);
-$app->add(new Portal\Tools\UpdateCommand);
-$app->add(new Portal\Tools\CommitCommand);
 
 
 $app->run();

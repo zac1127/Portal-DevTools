@@ -51,7 +51,7 @@ class OpenCommand extends Command
 
         if($input->getArgument('name') === "portal") {
 
-            $open = 'start  "" http://localhost';
+            $open = 'start  "" http://localhost/wam';
         }
 
         if($input->getArgument('name') === "hitachi") {
