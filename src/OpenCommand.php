@@ -89,6 +89,10 @@ class OpenCommand extends Command
             $open = 'start  "" https://connect.mattersight.com/vpn/index.html';
         }
 
+		if($input->getArgument('name') === "clients") {
+
+            $open = 'start  "" https://omr.mattersight.local/OMR/Topics/Home/PortalLinks.aspx';
+        }
 
         if($input->getArgument('name') === "ssms") {
 

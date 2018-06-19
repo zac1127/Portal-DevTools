@@ -46,10 +46,17 @@ class BuildCommand extends Command
                 exit(1);
             }
 
-            if($input->getArgument('type') == "module")
-            {
-                $portal_view_path .= ' '. $input->getArgument('type') . ' ' . $input->getArgument('moduleName');
-            }
+            if($input->getArgument('type') == "app") {
+			
+				$portal_view_path .= ' '. $input->getArgument('type');
+
+			
+			} else {
+				
+				$portal_view_path .= ' '. $input->getArgument('type') . ' ' . $input->getArgument('moduleName');
+				
+			}
+            
 
             $commands = [
                 'cd D:/',
