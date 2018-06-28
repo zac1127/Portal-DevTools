@@ -16,3 +16,4 @@ App::add('database_restore_path', 'D:/Development/Portal/portal-service/test/dat
 App::add('portal_view_path', 'D:/Development/Portal/portal-view');
 App::add('portal_service_path', 'D:/Development/Portal/portal-service');
 App::add('portal_service_logs', 'D:/Logs/Mattersight Portal Service/PHP/PHP_errors.log');
+App::add('redis', 'C:/Program Files/Mattersight/Mattersight Portal Service Redis');
