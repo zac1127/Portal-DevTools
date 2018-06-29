@@ -11,7 +11,7 @@ App::add('file_editor', file_exists('C:\\Program Files (x86)\\Notepad++\\notepad
 App::add('ssms', 'C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn\\ManagementStudio\\Ssms.exe');
 
 //portal
-App::add('database_prefix', 'Jindo');
+App::add('database_prefix', 'orange');
 App::add('build_view_path', 'D:/Development/Portal/developer-tools/build-view/build.ps1');
 App::add('database_restore_path', 'D:/Development/Portal/portal-service/test/database/orange');
 App::add('portal_view_path', 'D:/Development/Portal/portal-view');
