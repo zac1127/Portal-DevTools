@@ -62,6 +62,9 @@ class ConfigCommand extends Command
         $paths = App::getRegistry();
         $table = [];
         foreach($paths as $key => $path){
+            if($key == 'database_prefix') {
+                continue;
+            }
             $table[] = [$key, $path, file_exists($path) ? "true" : "false"];
         }
         return $table;

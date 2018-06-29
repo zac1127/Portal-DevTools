@@ -31,9 +31,13 @@ class BuildCommand extends Command
         //Get the paths for portal view and portal service
         $portal_view_path = App::get("build_view_path");
         $database_restore_path = App::get("database_restore_path");
+        $az_database_path = App::get("az_database_path");
+        $user_database_path = App::get("user_database_path");
+        $wam_database_path = App::get("wam_database_path");
+        $dbPrefix = App::get("database_prefix");
 
 
-        // array of commands to be executed
+            // array of commands to be executed
         $commands = [];
 
         // Building the view.
@@ -56,7 +60,6 @@ class BuildCommand extends Command
 				$portal_view_path .= ' '. $input->getArgument('type') . ' ' . $input->getArgument('moduleName');
 				
 			}
-            
 
             $commands = [
                 'cd D:/',
@@ -81,6 +84,64 @@ class BuildCommand extends Command
 
             $output->writeln('<comment>Changing directories...</comment>');
         }
+
+        //Restoring the database.
+        if(strtolower($input->getArgument('name')) == "azdb")
+        {
+            // make sure the path is correct.
+            if( ! file_exists($az_database_path .'\\AzServiceDatabase.exe'))
+            {
+                $output->writeln('<error>Database restore path is incorrect</error>');
+                exit(1);
+            }
+
+            $commands = [
+                'chdir /D ' . $az_database_path,
+                '.\AzServiceDatabase.exe "server=localhost;database='.$dbPrefix.'Por;trusted_connection=true"'
+            ];
+
+            $output->writeln('<comment>Changing directories...</comment>');
+        }
+
+        //Restoring the database.
+        if(strtolower($input->getArgument('name')) == "userdb")
+        {
+            // make sure the path is correct.
+            if( ! file_exists($user_database_path .'\\MattersightUserServiceDatabaseTest.exe'))
+            {
+                $output->writeln('<error>Database restore path is incorrect</error>');
+                exit(1);
+            }
+
+            $commands = [
+                'chdir /D ' . $user_database_path,
+                '.\MattersightUserServiceDatabaseTest.exe "server=localhost;database='.$dbPrefix.'Por;trusted_connection=true"'
+            ];
+
+            $output->writeln('<comment>Changing directories...</comment>');
+        }
+
+
+        //Restoring the database.
+        if(strtolower($input->getArgument('name')) == "wamdb")
+        {
+            // make sure the path is correct.
+            if( ! file_exists($wam_database_path .'\\Mattersight.Portal.WamServiceDatabaseTest.exe'))
+            {
+                $output->writeln('<error>Database restore path is incorrect</error>');
+                exit(1);
+            }
+
+            $commands = [
+                'chdir /D ' . $wam_database_path,
+                '.\Mattersight.Portal.WamServiceDatabaseTest.exe "server=localhost;database='.$dbPrefix.'Wam;trusted_connection=true"'
+            ];
+
+            $output->writeln('<comment>Changing directories...</comment>');
+        }
+
+
+
 
         if(empty($commands))
         {
